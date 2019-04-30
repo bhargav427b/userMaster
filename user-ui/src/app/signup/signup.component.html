@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="jumbotron" style="width:100%; background-color:crimson">
+    <h2>User Registration Form</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-sm-7 md-7">
+            <form [formGroup]="userRegistration" (ngSubmit)="onSubmit()">
+                <mat-card>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="firstname" placeholder="First Name" id="firstname">
+                      <mat-error *ngIf="userRegistration.controls['firstname'].hasError('required')">First Name is required</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['firstname'].hasError('minlength')">Minimum length is 2</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['firstname'].hasError('maxlength')">Maximum 20 characters are allowed.</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['firstname'].hasError('pattern')">Name can contain only alphabets and spcae.</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="lastname" placeholder="Last Name" id="lastname" >
+                      <mat-error *ngIf="userRegistration.controls['lastname'].hasError('required')">Last Name is required</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['lastname'].hasError('minlength')">Minimum length is 2</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['lastname'].hasError('maxlength')">Maximum 20 characters are allowed.</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['lastname'].hasError('pattern')">Name can contain only alphabets and spcae.</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="emailid" placeholder="Email Id" id="emailid" >
+                      <mat-error *ngIf="userRegistration.controls['emailid'].hasError('required')">Email is required</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['emailid'].hasError('minlength')">Minimum length is 5</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['emailid'].hasError('maxlength')">Maximum 30 characters are allowed.</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['emailid'].hasError('pattern')">Not a valid email!</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="username" placeholder="username">
+                      <mat-error *ngIf="userRegistration.controls['username'].hasError('required')">Not a valid username</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['username'].hasError('pattern')">UserName can contain only alphabets and spcae.</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['username'].hasError('minlength')">Minimum length is 8</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['username'].hasError('maxlength')">Maximum 20 characters are allowed.</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="address" placeholder="address">
+                      <mat-error *ngIf="userRegistration.controls['address'].hasError('required')">Not a valid address</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['address'].hasError('minlength')">Minimum length is 8</mat-error>
+                      <mat-error *ngIf="userRegistration.controls['address'].hasError('maxlength')">Maximum 50 characters are allowed.</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input type="password" matInput formControlName="password" placeholder="password">
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('minlength')">Minimum length is 8</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('maxlength')">Maximum 15 characters are allowed.</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('pattern')">Password can contain alphabets, digits and @*# only.</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input type="password" matInput formControlName="confirmpassword" placeholder="confirmpassword">
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('required')">ConfirmPassword is required</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('minlength')">Minimum length is 8</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('maxlength')">Maximum 15 characters are allowed.</mat-error>
+                    <mat-error *ngIf="userRegistration.controls['password'].hasError('pattern')">Password can contain alphabets, digits and @*# only.</mat-error>
+                  </mat-form-field>
+                </mat-card>
+                <mat-card>
+                  <div>
+                    <button mat-button type="Submit">Register</button>
+                    <button mat-button type="reset">Reset</button>
+                    <button mat-button routerLink='/login'>Login</button>
+                  </div>
+                </mat-card>
+            </form>
+    </div>
+</div>
